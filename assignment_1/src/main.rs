@@ -1,4 +1,5 @@
 //Multi Threads programming ##Example
+
 use std::thread;
 use std::time::Duration;
 
