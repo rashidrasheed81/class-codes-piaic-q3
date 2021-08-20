@@ -1,4 +1,6 @@
 //Multi Threads programming ##Example
+use std::thread;
+use std::time::Duration;
 
 fn main() {
     let handle = thread::spawn(|| {
@@ -20,40 +22,40 @@ fn main() {
 
 //Asynchronouse Programming ##Example
 
-// use async_std::task;
-// use futures::executor::block_on;
-// use std::time::Duration;
-// use std::time::Instant;
-// use std::thread;
+use async_std::task;
+use futures::executor::block_on;
+use std::time::Duration;
+use std::time::Instant;
+use std::thread;
 
-// fn main() {
-//     let start = Instant::now();
-//     block_on(async_functions());
-//     let elapsed = start.elapsed();
-//     println!("Calculated time is: {:?}", elapsed);
-// }
+fn main() {
+    let start = Instant::now();
+    block_on(async_functions());
+    let elapsed = start.elapsed();
+    println!("Calculated time is: {:?}", elapsed);
+}
 
-// async fn async_functions() {
-//     task::spawn(listen_songs());
-//     running().await;
-//     push_ups();
+async fn async_functions() {
+    task::spawn(listen_songs());
+    running().await;
+    push_ups();
 
-// }
+}
 
-// async fn running() {
-//     println!("Running start");
-//     task::sleep(Duration::from_millis(2000)).await;
-//     println!("Running end");
-// }
+async fn running() {
+    println!("Running start");
+    task::sleep(Duration::from_millis(2000)).await;
+    println!("Running end");
+}
 
-// async fn listen_songs() {
-//     println!("Start music");
-//     task::sleep(Duration::from_millis(5000)).await;
-// }
+async fn listen_songs() {
+    println!("Start music");
+    task::sleep(Duration::from_millis(5000)).await;
+}
 
-// fn push_ups() {
-//     println!("Push ups start");
-//     thread::sleep(Duration::from_millis(2000));
-//     println!("Push ups end");
-// }
+fn push_ups() {
+    println!("Push ups start");
+    thread::sleep(Duration::from_millis(2000));
+    println!("Push ups end");
+}
 
